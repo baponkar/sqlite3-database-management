@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+{% block content %}
+    <h3> See inside of  the Database</h3>
+    <form action='see' method='POST'>Enter the database file full  path :
+                <input type='text' name='file-path' id='file-path' placeholder="full file path directory"/>
+                <br/><br/><br/>
+                Table name  :
+                <input type='text' name='table-name' id='table-name' placeholder="name of the existing table"/>
+                <br/><br/><br/>
+                <input type='submit' name='submit'/>
+        </form>
+    <table style="margin-left: 20px:">
+    <th>
+        <tr style="color: green;">
+        {% for i in range(0,length) %}
+            <td>  {{column_names[i]}}   </td>
+        {% endfor %}
+        </tr>
+     </th>
+     
+     {% for i in range(0,length) %}
+     <tr>
+        <td> 
+        {% for j in range(0,length) %}
+            <td>{{rows[i][j]}} </td>
+        {% endfor %}
+        
+        </td>
+
+      {% endfor %}
+      </tr>
+      
+    <br/><br/>
+   
+   
+{% endblock %}

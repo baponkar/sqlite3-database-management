@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title> SQLITE3 Database management</title>
+        <link rel="stylsheet" href="/static/styles.css" type="text/css">
+    </head>
+    <!-- Adding some style to table  -->
+    <style type="text.css">
+        th: tr{
+            color: blue;
+        }
+        tr: nth-of-type(2n){
+            border: 1px solid black;
+            background-color: rgba(150,150,150,0.5);
+        }
+        
+        td{
+            padding: 8px 8px;
+            border: 1px solid black;
+        }
+        
+     </style>
+            
+    
+    <body>
+        <div class="navbar" role="navigation">
+            <a class="active" href="/">Home</a>
+            <a href="/create">Create</a>
+            <a href="/see"> See Data </a>
+            <a href="/delete">Delete Data</a>
+            <a href="/edit">Edit Data </a>
+            <h1> The SQLITE3 Database Management system! </h1>
+            <br/><br/>
+            {% block content %}
+            
+            {% endblock %}
+        </div> 
+            <br/><br/>
+            <div class="footer">
+                {% block footer %}
+                copyright 2021 © Bapon Kar.
+                <br/>
+                <br/>
+                <br/>
+                {% endblock %}           
+            </div>
+            <br/>
+    </body>
+</html>
