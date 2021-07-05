@@ -20,7 +20,7 @@ def see():
     column_names = []
     length = 0
     rows = []
-    
+    tn = 0
     if request.method == 'POST':
         file_path = request.form['file-path']
         tableName = request.form['table-name']
@@ -31,12 +31,13 @@ def see():
         rows = curs.fetchall()
         column_names = [ description[0] for description in curs.description]
         length = len(column_names)
+        tn = len(rows)
         
         curs.close()
         conn.commit()
         conn.close()
     print("file Path : " + file_path)
-    return render_template('see.html',db_path=file_path,column_names=column_names,length=length,rows=rows)
+    return render_template('see.html',db_path=file_path,column_names=column_names,length=length,rows=rows,total_news=tn)
         
 
 @app.route("/add")
